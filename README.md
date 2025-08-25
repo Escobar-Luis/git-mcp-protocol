@@ -100,3 +100,44 @@ This project will generate:
 Part of the **AI-Native Development Journey** series, connecting to:
 - **Phase 2 Projects** - Multi-agent framework comparisons and enterprise AI gateways
 - **System-Design Framework** - `../System-Design/01-Framework-Documentation/PROJECT-ROADMAP.md`
+
+---
+
+## Development Phase Guide
+
+### What You'll Actually Build
+**⚠️ CRITICAL**: Set Claude to **"guided learning" mode** before starting development
+
+#### Phase 1: MCP Server Foundation (30 minutes)
+You'll build a real MCP server from scratch:
+- Install and understand MCP SDK dependencies  
+- Implement basic server following 2025-06-18 specification
+- Set up client-host-server communication patterns
+- Handle protocol messages and validation
+
+#### Phase 2: Git Integration (45 minutes)  
+Connect your MCP server to Git operations:
+- Use simple-git library for repository analysis
+- Create MCP tools for Git operations (commit, branch, status)
+- Create MCP resources for repository data
+- Test Git automation through protocol interface
+
+#### Phase 3: AI-Powered Features (30 minutes)
+Add intelligence to your Git workflow:
+- AI commit message generation based on staged changes
+- Intelligent branch suggestions and management
+- Smart Git hooks using MCP protocol
+- Portfolio website integration
+
+#### Phase 4: Testing & Polish (15 minutes)
+Make it production-ready:
+- Validate MCP protocol compliance
+- Test all Git integrations
+- Document the learning journey
+- Prepare for content creation
+
+### BMAD Automation Context
+This is **Project 1.1** - the baseline establishment phase. After completing this manually with guided learning:
+- Document timing and friction points for automation development
+- Use learnings to build BMAD automation for Projects 1.2+
+- Maintain authentic learning experience while identifying automation opportunities

@@ -16,13 +16,32 @@
 - [ ] Claude set to "guided learning" mode (⚠️ REQUIRED before development)
 
 **Setup Challenges Encountered:**
-- GitHub CLI not available - requires manual repository creation
-- MCP SDK package may need version verification during npm install
+- **GitHub CLI not available** - requires manual repository creation (HIGH FRICTION - 4/5)
+  - *Solution*: Installed GitHub CLI using Homebrew, automated repo creation
+  - *Automation potential*: High - can be fully automated in BMAD `/start-project` command
+  - *Time savings*: ~15 minutes per project (manual vs automated)
+- **Template customization manual** - repetitive text replacement in multiple files (MEDIUM FRICTION - 3/5)
+  - *Solution*: Manual editing of README, package.json, docs files
+  - *Automation potential*: High - perfect for template parameter substitution
+  - *Time savings*: ~10 minutes per project
+- **Framework specification lookup** - manual navigation to PROJECT-ROADMAP.md (LOW FRICTION - 2/5)
+  - *Solution*: Manual cross-referencing and copying specifications
+  - *Automation potential*: Medium - can extract and inject automatically
+  - *Time savings*: ~5 minutes per project
+- **MCP SDK package availability** - need to verify dependency versions work (TBD)
 
 **Setup Solutions Found:**  
-- Provided clear instructions for manual GitHub repository creation
-- Created foundation files and placeholder structure for development
+- Automated GitHub CLI installation and repository creation workflow
+- Created systematic template customization approach
+- Linked framework specifications directly in project documentation
 - Prepared validation scripts and testing framework for MCP compliance
+
+**Friction Points to Document During Development:**
+- [ ] MCP SDK installation and compatibility issues
+- [ ] Protocol specification complexity and learning curve
+- [ ] Git integration complexity and debugging
+- [ ] AI service integration challenges
+- [ ] Testing and validation difficulties
 
 #### Development Phase (2 hours)
 - **Key concepts learned:**
