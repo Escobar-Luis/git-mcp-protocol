@@ -1,0 +1,21 @@
+{
+  "name": "project-template",
+  "version": "1.0.0",
+  "description": "AI-Native Project Template",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "dev": "nodemon src/index.js",
+    "build": "npm run test && npm run start"
+  },
+  "keywords": ["ai-native", "development", "learning", "protocol-engineering"],
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "nodemon": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
