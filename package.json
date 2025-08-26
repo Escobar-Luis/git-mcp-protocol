@@ -1,6 +1,7 @@
 {
   "name": "git-mcp-protocol",
   "version": "1.0.0",
+  "type": "module",
   "description": "Git + MCP Protocol Implementation - AI-native Git workflow with Model Context Protocol integration",
   "main": "src/mcp-server.js",
   "scripts": {
