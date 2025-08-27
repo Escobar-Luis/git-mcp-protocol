@@ -10,14 +10,9 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import simpleGit from "simple-git";
 
-// TODO(human)
-// Implement the core MCP server initialization and Git integration
-// This should include:
-// 1. Create McpServer instance with proper name and capabilities
-// 2. Set up simple-git instance for repository operations
-// 3. Register at least one basic Git tool (e.g., git status)
-// 4. Connect to StdioServerTransport and handle connections
-// 5. Add proper error handling and logging
+// MCP Server Implementation Complete ✅
+// Features: Git status, branch operations, and commit history
+// Learning Focus: Progressive Git command mastery through MCP development
 
 async function main() {
   console.log('Git + MCP Protocol Server - Starting initialization');
@@ -105,13 +100,77 @@ async function main() {
     }
   );
   
-  // 5. Connect to Transport
+  // 6. Register Git Log Tool
+  // Demonstrates more complex input validation and Git history operations
+  server.registerTool(
+    "git-log",
+    {
+      title: "Git Commit History",
+      description: "Get recent commit history with customizable options",
+      inputSchema: {
+        type: "object",
+        properties: {
+          limit: {
+            type: "number",
+            description: "Number of commits to show (default: 10)",
+            default: 10
+          },
+          format: {
+            type: "string",
+            enum: ["oneline", "full"],
+            description: "Log format type",
+            default: "oneline"
+          }
+        }
+      }
+    },
+    async ({ limit = 10, format = "oneline" }) => {
+      try {
+        const logOptions = {
+          maxCount: limit,
+          format: format === "oneline" ? { hash: "%h", message: "%s" } : undefined
+        };
+        
+        const log = await git.log(logOptions);
+        
+        if (format === "oneline") {
+          const commits = log.all.map(commit => 
+            `${commit.hash} ${commit.message}`
+          ).join('\n');
+          
+          return {
+            content: [{
+              type: "text",
+              text: `Recent Commits (${limit}):\n${commits}`
+            }]
+          };
+        } else {
+          return {
+            content: [{
+              type: "text",
+              text: `Commit History:\n${JSON.stringify(log.all, null, 2)}`
+            }]
+          };
+        }
+      } catch (error) {
+        return {
+          content: [{
+            type: "text",
+            text: `Error getting Git log: ${error.message}`
+          }],
+          isError: true
+        };
+      }
+    }
+  );
+  
+  // 7. Connect to Transport
   // StdioServerTransport enables communication via stdin/stdout (standard for CLI tools)
   const transport = new StdioServerTransport();
   await server.connect(transport);
   
   console.log('MCP server connected and ready for requests');
-  console.log('Available tools: git-status, git-branch');
+  console.log('Available tools: git-status, git-branch, git-log');
   console.log('Use stdin/stdout for MCP protocol communication');
 }
 
